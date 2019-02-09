@@ -1,0 +1,10 @@
+<div class="navigation">
+    <a href="{{url_for('showHomePage')}}">Home</a>
+    {% for category in categories %}
+        <a href="{{url_for('showCategory', category_id = category.id)}}">{{category.name}}</a>
+    {% endfor %}
+    {% if 'username' in session %}
+        <a id="add_category" href="{{url_for('addNewCategory')}}">&#10010; category</a>
+    {% endif %}
+    <a id="books_json" href="{{url_for('allBooksToJSON')}}">&#9886; jsonify all</a>
+</div>

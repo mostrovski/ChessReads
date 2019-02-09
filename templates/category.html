@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "navigation.html" %}
+    <div class="books">
+        <span class="noselect">{{category.name}}</span><br>
+        {% if 'username' in session %}
+            <a id="add_book" href="{{url_for('addNewBook', category_id = category.id)}}">add book</a>
+            <a id="edit_category" href="{{url_for('editCategory', category_id = category.id)}}">edit category</a>
+            <a id="delete_category" href="{{url_for('deleteCategory', category_id = category.id)}}">delete category</a>
+        {% endif %}
+        {% for book in books %}
+            <a href="{{url_for('showBook', category_id = category.id, book_id = book.id)}}">{{book.title}}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

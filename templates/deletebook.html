@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "navigation.html" %}
+    <div class="delete_book">
+        <span class="noselect">Delete this book?</span><br>
+        <a href="{{url_for('showBook', category_id = category.id, book_id = bookToDelete.id)}}">
+            <button>Cancel</button>
+        </a>
+        <form action="#" method = "post">
+            <button type="submit" id="submit">Delete</button>
+        </form>
+    </div>
+{% endblock %}

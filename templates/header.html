@@ -1,0 +1,11 @@
+<div id="app_title" class="noselect">
+    <h1>Chess reads</h1>
+    <h2>&#9812; Book Catalog</h2>
+</div>
+<div id="login_button">
+    {% if 'username' not in session %}
+    <a class="oauth" href="{{url_for('showLogin')}}">login</a>
+    {% else %}
+    <a class="oauth" href="{{url_for('disconnect')}}">logout</a>
+    {% endif %}
+</div>

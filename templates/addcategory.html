@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "navigation.html" %}
+    <div class="add_category">
+        <span class="noselect">Name new category</span>
+        <form action="#" method = "post">
+            <input type ="text" maxlength="250" name="name" placeholder="category name" required>
+
+            <button type="submit">add to catalog</button>
+        </form>
+    </div>
+{% endblock %}

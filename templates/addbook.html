@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "navigation.html" %}
+    <div class="add_book">
+        <span class="noselect">{{category.name}}</span><br>
+        <span class="noselect">New book</span>
+        <form action="#" method = "post">
+            <label for="title">Title:</label>
+            <input type ="text" maxlength="80" name="title" required>
+
+            <label for="author">Author:</label>
+            <input type ="text" maxlength="80" name="author" required>
+
+            <label for="description">Description:</label>
+            <textarea maxlength="250" name="description" required></textarea>
+
+            <button type="submit">add to catalog</button>
+        </form>
+    </div>
+{% endblock %}

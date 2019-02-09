@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="//apis.google.com/js/platform.js?onload=start"></script>
+        <link rel=stylesheet type=text/css href="{{url_for('static', filename='styles.css')}}">
+    </head>
+    <body>
+        <header>
+            {% include "header.html" %}
+        </header>
+        <div class="flash">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}      
+                    {% for message in messages %}
+                        <span>&rarr; {{ message }}</span>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        <main>
+            <section class="signin">
+                {% block signin %}
+                {% endblock %}
+            </section>
+            <section class="content">
+                {% block content %}
+                {% endblock %}
+            </section>
+        </main>
+        <footer>
+            <div id="footer_text">
+                &copy; Andrei Ostrovskii 2019
+            </div>
+        </footer>
+    </body>
+</html>

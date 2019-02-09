@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "navigation.html" %}
+    <div class="update_category">
+        <span class="noselect">Edit category name</span>
+        <form action="#" method = "post">
+            <input type ="text" maxlength="250" name="name" value="{{category.name}}" required>
+
+            <button type="submit">save changes</button>
+        </form>
+    </div>
+{% endblock %}

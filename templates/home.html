@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "navigation.html" %}
+    <div class="books">
+        <span class="noselect">Recently added books</span>
+        {% for book in recentBooks %}
+            {% for category in categories %}
+                {% if category.id == book.category_id %}
+                    <a href="{{url_for('showBook', category_id = category.id, book_id = book.id)}}">
+                        {{book.title}} :: <em>{{category.name}}</em>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}

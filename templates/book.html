@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "navigation.html" %}
+    <div class="book_details">
+        <span class="noselect">{{category.name}}</span><br>
+        <span class="noselect">{{book.title}}</span><br>
+        <p>
+            by {{book.author}}<br><br>
+            <em>{{book.description}}</em><br><br>
+            cataloged by <em>{{contributor.name}}</em><br>
+            <img class="user_img" src="{{contributor.picture}}">
+        </p>
+        {% if 'username' in session %}
+            <a href="{{url_for('updateBook', category_id = category.id, book_id = book.id)}}">update info</a>
+            <a href="{{url_for('deleteBook', category_id = category.id, book_id = book.id)}}">
+                delete book
+            </a>
+        {% endif %}
+    </div>
+{% endblock %}
