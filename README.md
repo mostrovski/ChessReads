@@ -15,9 +15,9 @@ added.
 
 ## Implementation of the project
 
-`db_setup.py` sets up the database and classes >>> *model*;
-`templates` and `static` are responsible for the presentation >>> *view*;
-`app.py` contains main logic of the app >>> *controller*;
+- `db_setup.py` sets up the database and classes >>> *model*;
+- `templates` and `static` are responsible for the presentation >>> *view*;
+- `app.py` contains main logic of the app >>> *controller*;
 
 ## Dependencies (built with) 
 
@@ -42,7 +42,7 @@ added.
  4. Download and unzip [VM configuration files](http://bit.ly/2BdmpWt);
  5. You should have the *FSND-Virtual-Machine* directory with the *vagrant* 
     directory inside after the previous step;
- 6. [Download](https://github.com/mostrovski/chessReads/archive/master.zip) and 
+ 6. [Download](https://github.com/mostrovski/ChessReads/archive/master.zip) and 
     extract this repository so that you have it inside the *vagrant* directory;
  7. In your terminal, `cd` to the *vagrant* directory and run the command 
     `vagrant up` (this causes Vagrant to download the Linux operating system
