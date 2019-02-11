@@ -2,6 +2,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
+from config import DB_CONNECT
 
 Base = declarative_base()
 
@@ -62,6 +63,6 @@ class Book(Base):
             'book_id': self.id,
         }
 
-engine = create_engine('sqlite:///catalog.db')
+engine = create_engine(DB_CONNECT)
 
 Base.metadata.create_all(engine)

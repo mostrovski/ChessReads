@@ -14,16 +14,15 @@ import string
 import httplib2
 import json
 import requests
+import config
 
 app = Flask(__name__)
 
-CLIENT_ID = json.loads(open(
-    'client_secrets.json', 'r').read())['web']['client_id']
-APPLICATION_NAME = 'Chess Reads'
+CLIENT_ID = config.CLIENT_ID
+APPLICATION_NAME = config.APP_NAME
 
 # Connect to the database and create database session
-engine = create_engine(
-    'sqlite:///catalog.db', connect_args={'check_same_thread': False})
+engine = create_engine(config.DB_CONNECT)
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -255,7 +254,7 @@ def showLogin():
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
                     for x in xrange(32))
     login_session['state'] = state
-    return render_template('login.html', STATE=state)
+    return render_template('login.html', STATE=state, client_id=CLIENT_ID)
 
 
 @app.route('/gconnect', methods=['POST'])
@@ -415,6 +414,6 @@ def disconnect():
 
 ''' ******************************* START APP **************************** '''
 if __name__ == '__main__':
-    app.secret_key = 'super_secret_key'
+    app.secret_key = config.APP_KEY
     app.debug = True
     app.run(host='0.0.0.0', port=8000)
