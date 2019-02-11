@@ -23,7 +23,7 @@ added.
 
 - [Python](https://www.python.org/downloads/)
 - [Flask](http://flask.pocoo.org/)
-- [SQLite](https://www.sqlite.org/index.html)
+- [PostgreSQL](https://www.postgresql.org/)
 - [SQLAlchemy](https://www.sqlalchemy.org/)
 - [oauth2client](https://github.com/googleapis/oauth2client)
 - [httplib2](https://github.com/httplib2/httplib2)
@@ -51,9 +51,20 @@ added.
  8. Run `vagrant ssh` command to log into the virtual machine;
  9. Run `cd /vagrant` command to access shared files;
 10. `cd` to the app directory (see step 6);
-11. Make sure you are on the same level with the `db_setyp.py` file;
-12. Run `python db_setup.py` command to setup the database;
-13. Run `python db_populate.py` command to populate the database;
-14. Run `python app.py` command to start the server;
-15. In your browser, open *localhost:8080*; you will need a Google account and
+11. Run `sudo -u postgres psql` command to log in to the PostgreSQL as admin;
+12. Run `CREATE DATABASE <database>;` command to create new database (replace 
+	`<database>` with your value);
+13. Run `CREATE USER <username> WITH PASSWORD '<password>';` command to create
+	new database user (replace `<username>` and `<password>` with your values);
+14. Run `GRANT ALL PRIVILEGES ON DATABASE <database> TO <username>;` command (
+	replace `<database>` and `<username>` with your values from steps 12-13);  
+15. Log out from the PostgreSQL (`^D` will do in most cases);
+16. Modify `config.py` file to reflect your settings - change the values of 
+	*DB_NAME*, *DB_USER*, *DB_PASSWORD* according to the values from steps 12 
+	and 13. Changing *APP_KEY* is optional;  
+17. Make sure you are on the same level with the `db_setyp.py` file;
+18. Run `python db_setup.py` command to create database tables;
+19. Run `python db_populate.py` command to populate the database;
+20. Run `python app.py` command to start the server;
+21. In your browser, open *localhost:8000*; you will need a Google account and
 	the Internet connection to log in. 
