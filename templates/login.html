@@ -2,52 +2,54 @@
 {% block signin %}
     <div id="auth_result">
         <!-- GOOGLE PLUS SIGN IN BUTTON--> 
-        <span id="signinButton" class="g-signin"
-          data-scope="openid email"
-          data-clientid="{{client_id}}"
-          data-redirecturi="postmessage"
-          data-accesstype="offline"
-          data-cookiepolicy="single_host_origin"
-          data-callback="signInCallback"
-          data-approvalprompt="force">
-        </span><br>
+        <img id="signinButton" src="{{url_for('static', filename='img/gsignin.png')}}"><br>
         <!--END GOOGLE PLUS SIGN IN BUTTON -->
-        <em>you need a Google account to log in</em> 
+        <span><em>you need a Google account to log in</em></span> 
     </div>
 
     <script>
-    function signInCallback(authResult) {
-        if (authResult['code']) {
-        /* Send the one-time-use code to the server, if the server responds, 
-        write a 'login successful' message to the web page and then redirect 
-        back to the main restaurants page */
-        $('#auth_result').html('Checking...')
-        $.ajax({
-            type: 'POST',
-            url: '/gconnect?state={{STATE}}',
-            processData: false,
-            data: authResult['code'],
-            contentType: 'application/octet-stream; charset=utf-8',
-            success: function(result) {
-                // Handle or verify the server response if necessary.
-                if (result) {
-                    $('#auth_result').html(
-                        result+'</br>Welcome! Redirecting...'
-                    );
-                    setTimeout(function() {
-                        window.location.href = '/';
-                    }, 4000);  
-                } else if (authResult['error']) {
-                    console.log('There was an error: '+authResult['error']);
+        function start() {
+            gapi.load('auth2', function() {
+                auth2 = gapi.auth2.init({
+                    client_id: '{{client_id}}'
+                });
+            });
+        }
+    </script>
+
+    <script>
+        $('#signinButton').click(function() {
+            function signInCallback(authResult){
+                if (authResult['code']) {
+                    $('#auth_result').html('Checking...');
+                    $.ajax({
+                        type: 'POST',
+                        url: '/gconnect?state={{STATE}}',
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        contentType: 'application/octet-stream; charset=utf-8',
+                        success: function(result) {
+                            $('#auth_result').html(
+                                result + '</br>Welcome! Redirecting...'
+                            );
+                            setTimeout(function() {
+                                window.location.href = "/";
+                            }, 4000);
+                        },
+                        processData:false,
+                        data:authResult['code']
+                    });
                 } else {
-                    $('#auth_result').html(
-                        'Failed to make a server-side call. '+
-                        'Check your configuration and console.'
-                    );
+                // handle error
+                console.log('There was an error: ' + authResult['error']);
+                $('#auth_result').html(
+                    'Failed to make a server-side call. '+
+                    'Check your configuration and console.'
+                );
                 }
             }
-        }); 
-        } 
-    }
+            auth2.grantOfflineAccess().then(signInCallback);
+        });
     </script>
 {% endblock %}

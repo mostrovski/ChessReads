@@ -41,6 +41,10 @@ header {
     padding-top: 22px;
 }
 
+#signinButton {
+    cursor: pointer;
+}
+
 #login_button a, .book_details a, a#add_book, a#books_json, 
 a#add_category, a#edit_category, a#delete_category {
     display: block;
