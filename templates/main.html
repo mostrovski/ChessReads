@@ -11,7 +11,7 @@
         </header>
         <div class="flash">
             {% with messages = get_flashed_messages() %}
-                {% if messages %}      
+                {% if messages %}
                     {% for message in messages %}
                         <span>&rarr; {{ message }}</span>
                     {% endfor %}

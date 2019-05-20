@@ -12,9 +12,9 @@ body {
 }
 
 .noselect {
-    -webkit-touch-callout: none; 
-    -webkit-user-select: none; 
-    -khtml-user-select: none; 
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -45,7 +45,7 @@ header {
     cursor: pointer;
 }
 
-#login_button a, .book_details a, a#add_book, a#books_json, 
+#login_button a, .book_details a, a#add_book, a#books_json,
 a#add_category, a#edit_category, a#delete_category {
     display: block;
     padding: 5px 10px 5px 10px;
@@ -134,7 +134,7 @@ h2 {
     margin-bottom: 5px;
 }
 
-.books span, .add_book span, .update_book span, .delete_book span, 
+.books span, .add_book span, .update_book span, .delete_book span,
 .add_category span, .update_category span, .delete_category span {
     display: inline-block;
     padding: 2.5px 10px 5px 10px;
@@ -165,7 +165,7 @@ a#add_book, a#edit_category, a#delete_category {
     border: none;
 }
 
-a#add_book:hover, a#edit_category:hover, a#add_category:hover, 
+a#add_book:hover, a#edit_category:hover, a#add_category:hover,
 a#books_json:hover, #login_button a:hover {
     background-color: #2d3c49;
 }
@@ -228,9 +228,9 @@ a#delete_category:hover {
     background-color: #d10606;
 }
 
-.user_img { 
+.user_img {
     padding: 10px;
-    width: 150px; 
+    width: 150px;
     height: 150px;
     border-radius: 150px;
     -webkit-border-radius: 150px;
@@ -268,7 +268,7 @@ textarea {
     border-radius: 10px;
     font-size: 14px;
 }
- 
+
 textarea:focus {
     border: 1px solid #1284c6;
     background-color: #1284c6;

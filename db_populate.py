@@ -29,7 +29,7 @@ mySystem = Book(title='My System',
 session.add(mySystem)
 session.commit()
 # Add book 'Under the Surface'
-description = '''This book invites you beneath the surface, where you can 
+description = '''This book invites you beneath the surface, where you can
 learn to navigate the depths of chess'''
 underTheSurface = Book(title='Under the Surface',
                        author='Jan Markos',
@@ -78,11 +78,11 @@ category3 = Category(name='Middlegames', user=firstUser)
 session.add(category3)
 session.commit()
 # Add book 'Understanding Chess Middlegames'
-description = '''The three-times World Chess Solving Champion distils the most 
-useful middlegame concepts and knowledge into 100 lessons that everyone can 
+description = '''The three-times World Chess Solving Champion distils the most
+useful middlegame concepts and knowledge into 100 lessons that everyone can
 understand'''
 chessMiddlegames = Book(title='Understanding Chess Middlegames',
-                        author='John Nunn', 
+                        author='John Nunn',
                         description=description,
                         category=category3,
                         user=firstUser)
@@ -95,7 +95,7 @@ category4 = Category(name='Endgames', user=firstUser)
 session.add(category4)
 session.commit()
 # Add book 'Understanding Chess Endgames'
-description = '''One of the best chess writers provides everything you need to 
+description = '''One of the best chess writers provides everything you need to
 know about chess endgames'''
 chessEndgames = Book(title='Understanding Chess Endgames',
                      author='John Nunn',
@@ -111,7 +111,7 @@ category5 = Category(name='Tactics', user=firstUser)
 session.add(category5)
 session.commit()
 # Add book 'Chess Tactics from Scratch'
-description = '''This expanded second edition offers more puzzles to test the 
+description = '''This expanded second edition offers more puzzles to test the
 tactical chess skill that the author helps the reader develop'''
 chessTactics = Book(title='Chess Tactics from Scratch',
                     author='Martin Weteschnik',
@@ -127,7 +127,7 @@ category6 = Category(name='Strategy', user=firstUser)
 session.add(category6)
 session.commit()
 # Add book 'Chess Strategy for Club Players'
-description = '''Every club player knows the problem: the opening has ended, 
+description = '''Every club player knows the problem: the opening has ended,
 and now what? First find the right plan, then the good moves will follow'''
 chessStrategy = Book(title='Chess Strategy for Club Players',
                      author='Herman Grooten',
@@ -143,7 +143,7 @@ category7 = Category(name='Stories', user=firstUser)
 session.add(category7)
 session.commit()
 # Add book 'The World Champions I Knew'
-description = '''An important addition to what we know about the lives of the 
+description = '''An important addition to what we know about the lives of the
 world champions. This is chess literature at its very best'''
 worldChampions = Book(title='The World Champions I Knew',
                       author='Genna Sosonko',
