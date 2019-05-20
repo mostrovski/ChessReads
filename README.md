@@ -1,5 +1,10 @@
 # Chess Reads, Item Catalog Application
 
+- [Intro](#intro)
+- [Implementation](#implementation-of-the-project)
+- [Dependencies](#dependencies-built-with)
+- [How to run it](#how-to-run-it)
+
 ## Intro
 
 The task was to develop an application that provided a list of items within a
